@@ -42,14 +42,14 @@ site_code_all = strsplit('tnn srb ptk lbs', /extract)
 if(n_elements(site) eq 0) then site='all'
 site=strjoin(site, ' ')
 site=strsplit(strlowcase(site), ' ', /extract)
-site_code=thm_check_valid_name(site, site_code_all, /include_all)
+site_code=ssl_check_valid_name(site, site_code_all, /include_all)
 
 ;--- parameter
 param_all = strsplit('ch1 ch2', /extract)
 if(n_elements(parameter) eq 0) then parameter='all'
 parameter=strjoin(parameter, ' ')
 parameter=strsplit(strlowcase(parameter), ' ', /extract)
-parameter = thm_check_valid_name(parameter, param_all, /include_all)
+parameter = ssl_check_valid_name(parameter, param_all, /include_all)
 
 ;--- other options
 if (not keyword_set(verbose)) then verbose=0

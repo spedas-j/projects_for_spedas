@@ -222,11 +222,22 @@ pro iug_ui_load_data_load_pro,    $
           endelse
       end
 
+      ;----- GPS_Radio_Occultation_CHAMP ----;
+      'GPS_radio_occultation' : begin
+        iug_load_gps_ro_rish, site = site_or_param, trange = timeRange
+        if parameters[0] eq '*' then begin
+          par_names=tnames('gps_ro_*_fsi_*')
+        endif else begin
+          par_names=tnames('gps_ro_*_fsi_'+parameters)
+        endelse
+      end
+
+
       ;----- HF_Solar_Jupiter_radio_spectrometer ----;
       'HF_Solar_Jupiter_radio_spectrometer' : begin
 
-print, site_or_param
-print, parameters
+          print, site_or_param
+          print, parameters
 
           iug_load_hf_tohokuu, site=site_or_param, trange = timeRange
           if parameters[0] eq '*' then begin
